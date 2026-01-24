@@ -54,46 +54,41 @@ void main() {
         test('parses without album art', () {
           final noArtMeta = reader.parseFile(file, ParseOptions.noAlbumArt);
 
-          expect(noArtMeta.albumArt, isNull,
-              reason: 'Album art should be skipped');
-          expect(noArtMeta.title, isNotNull,
-              reason: 'Text metadata should be preserved');
+          expect(noArtMeta.albumArt, isNull, reason: 'Album art should be skipped');
+          expect(noArtMeta.title, isNotNull, reason: 'Text metadata should be preserved');
         });
 
         test('parses album art only', () {
           final artOnlyMeta = reader.parseFile(file, ParseOptions.albumArtOnly);
 
-          expect(artOnlyMeta.title, isNull,
-              reason: 'Text metadata should be skipped');
-          expect(artOnlyMeta.artist, isNull,
-              reason: 'Text metadata should be skipped');
+          expect(artOnlyMeta.title, isNull, reason: 'Text metadata should be skipped');
+          expect(artOnlyMeta.artist, isNull, reason: 'Text metadata should be skipped');
 
           // Album art availability depends on format
           if (format != 'WAV') {
-            expect(artOnlyMeta.albumArt, isNotNull,
-                reason: 'Album art should be extracted for $format');
+            expect(artOnlyMeta.albumArt, isNotNull, reason: 'Album art should be extracted for $format');
           }
         });
 
         test('detects format correctly', () {
           final bytes = file.readAsBytesSync();
-          expect(reader.isSupported(bytes), isTrue,
-              reason: '$format should be detected as supported');
+          expect(reader.isSupported(bytes), isTrue, reason: '$format should be detected as supported');
         });
 
         test('supports path-based parsing', () {
           final fullMeta = reader.parseFile(file);
           final pathMeta = reader.parsePath(file.path);
 
-          expect(pathMeta.title, equals(fullMeta.title),
-              reason: 'Path parsing should produce same result');
-          expect(pathMeta.artist, equals(fullMeta.artist),
-              reason: 'Path parsing should produce same result');
+          expect(pathMeta.title, equals(fullMeta.title), reason: 'Path parsing should produce same result');
+          expect(pathMeta.artist, equals(fullMeta.artist), reason: 'Path parsing should produce same result');
         });
 
         test('supports isSupportedPath', () {
-          expect(reader.isSupportedPath(file.path), isTrue,
-              reason: 'isSupportedPath should return true for $format');
+          expect(
+            reader.isSupportedPath(file.path),
+            isTrue,
+            reason: 'isSupportedPath should return true for $format'
+          );
         });
       });
     }

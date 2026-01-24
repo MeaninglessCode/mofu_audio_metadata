@@ -16,5 +16,4 @@ Include this repo in your project's `pubspec.yaml`.
 
 ## Usage
 
-See `examples`.
-
+See `example`.

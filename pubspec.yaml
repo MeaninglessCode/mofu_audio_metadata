@@ -1,6 +1,6 @@
 name: mofu_audio_metadata
 description: Metadata parsing library that supports various audio formats and containers.
-version: 0.2.0
+version: 0.2.1
 repository: https://github.com/MeaninglessCode/mofu_audio_metadata
 
 environment:

@@ -29,8 +29,8 @@ class ID3v2Parser {
   }
 
   /// Returns a map containing the following keys:
-  /// - `frames`: Map<String, List<String>> of text frame values
-  /// - `pictures`: List<AlbumArt> of embedded pictures
+  /// - `frames`: Map&lt;String, List&lt;String&gt;&gt; of text frame values
+  /// - `pictures`: List&lt;AlbumArt&gt; of embedded pictures
   /// - `version`: integer major version number
   /// - `revision`: integer minor revision number
   /// 

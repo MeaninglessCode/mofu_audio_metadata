@@ -1,3 +1,7 @@
+## 0.2.1
+
+- Minor typo fixes
+
 ## 0.2.0
 
 - Adding tests for checking album art parsing

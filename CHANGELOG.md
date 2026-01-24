@@ -1,3 +1,9 @@
+## 0.2.0
+
+- Adding tests for checking album art parsing
+- Fixed some minor static analysis issues
+
+
 ## 0.1.0
 
 - Initial version.
